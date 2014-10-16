@@ -25,13 +25,38 @@ http://git-scm.com/
 # `vi hello-world.txt`
 - create a file you want to work on, using your favorite editor
 - what does `git status` say now?
+![](http://www.vamers.com/wp-content/uploads/2013/09/Vamers-FIY-Ermahgerd-What-does-the-Fox-say-Ylvis-has-the-answer-Main-.jpg)
+---
+# `git commit` 
+- *commits* your changes, i.e. create a new version/snapshot in the repo
+- try it. What happens?
+
 
 ---
 # `git add hello-world.txt`
-- now your 
+- Oops! You needed to *stage* your changes to commit first
+- type the above command
+- now what does the fo.. I mean `git status` say?  
 
+---
+# `git commit`
+- now we're getting somewhere!
+- you are asked to enter a commit message. Keep it short but informative. You'll use these messages later to know what each snapshot was all about.
+
+---
+# `git log`
+- tells you the history in your current branch (more on branches later)
+- notice how each commit is identified by a hash. You can use this hash (or I believe the first few digits thereof) to refer to a given snapshot, and to check it out later.
+- your other BFF! Use it often.
+![](http://270c81.medialib.glogster.com/media/32/323e8de520a373ab364fc664565f7183a174af48d4c57475c6b8d1e37d9aa607/bff-mousepad-p144269073010771337trak-400-1.jpg)
+
+---
 	* what is git, staging, commiting
 	* command line git: init, commit, checkout, log, status, branch
 	* github: its own repo, issue tracker, forking, pull requests, hooks (CI etc.)
 	* github for edu: private repos, group projects, TAs and issues
 	* beyond git: Social Wiki
+
+---
+# Resources
+- Pro Git is a free book [available](http://git-scm.com/book) at the Git web site.
