@@ -1,6 +1,17 @@
+# Quick-and-dirty intro to Git
+## (by someone who doesn't know that much about it either) ##
+
+Babak Esfandiari
+
+babak@sce.carleton.ca
+
+---
+
 # What is Git?
 - A distributed version control system
-- created by Linus Torvalds to solve his own problem
+ - local repositories (so, not client-server), means can work offline
+ - teamwork achieved through multiple repositories and agreed upon workflow (more on that later)
+- created by Linus Torvalds to solve his own problems
 
 ---
 # Installing Git
@@ -9,10 +20,13 @@ http://git-scm.com/
 - comes with GUI tools
 - but on Mac or Linux, can just use the terminal
 - on Windows, can use the Powershell, or use Git Bash that comes with Git Gui
+- once installed, some configuration required
+ - see http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup
 
 ---
 # `git init`
 - creates a local repository (or just a "repo" if you're a cool kid) in current folder
+- alternately, if you don't want to start from scratch, you can clone an existing repo: `git clone <repo url>`
 
 ---
 # `git status`
@@ -26,22 +40,25 @@ http://git-scm.com/
 - create a file you want to work on, using your favorite editor
 - what does `git status` say now?
 ![](http://www.vamers.com/wp-content/uploads/2013/09/Vamers-FIY-Ermahgerd-What-does-the-Fox-say-Ylvis-has-the-answer-Main-.jpg)
+
 ---
 # `git commit` 
-- *commits* your changes, i.e. create a new version/snapshot in the repo
+- *commits* your changes, i.e. create a new version/snapshot in the repo using all the staged files.
 - try it. What happens?
-
 
 ---
 # `git add hello-world.txt`
 - Oops! You needed to *stage* your changes to commit first
 - type the above command
-- now what does the fo.. I mean `git status` say?  
+- now what does the fo.. I mean `git status` say?
+- `git add .` adds everything at once  
 
 ---
 # `git commit`
 - now we're getting somewhere!
 - you are asked to enter a commit message. Keep it short but informative. You'll use these messages later to know what each snapshot was all about.
+- `git commit -m "message"` includes the message directly and skips the prompting part
+- `git commit -a` skips the staging part (at least for the files that you have added at least once previously)
 
 ---
 # `git log`
@@ -51,12 +68,67 @@ http://git-scm.com/
 ![](http://270c81.medialib.glogster.com/media/32/323e8de520a373ab364fc664565f7183a174af48d4c57475c6b8d1e37d9aa607/bff-mousepad-p144269073010771337trak-400-1.jpg)
 
 ---
-	* what is git, staging, commiting
-	* command line git: init, commit, checkout, log, status, branch
-	* github: its own repo, issue tracker, forking, pull requests, hooks (CI etc.)
-	* github for edu: private repos, group projects, TAs and issues
-	* beyond git: Social Wiki
+#`git diff`
+- compares what is unstaged in your working directory with what is staged, i.e. ready to go into the next commit
+- `git diff --staged` compares what is staged with what is in the last commit
+- or just use the git gui for more intuitive output
+
+---
+#Branches
+- a branch in Git is really just a pointer to a given snapshot
+ - use it to for exploratory purposes
+- `git branch` lists the branches you currently have
+- `git branch mybranch` create a new branch called "mybranch"
+- `git checkout mybranch` switches to that branch
+ - from now on any new commits you make will be made down that branch you switched to
+ - exercise: commit a new snapshot here, and jump back to the master branch
+- great example here: http://git-scm.com/book/en/Git-Branching-What-a-Branch-Is
+
+---
+#`git merge mybranch`
+- allows you to move the pointer of your current branch to the snapshot located by the pointer of "otherbranch"
+- depending on the configuration of your tree of snapshots, this can be:
+ - just a straightforward pointer move
+ - needing the creation of a new snapshot that inherits from the two branches
+ - needing some conflict resolution
+- gory details here: http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging
+
+---
+#Collaborative work: pushing and pulling branches
+- you can work with others by synchronizing your repo with the repo you cloned from
+ - the repo you cloned from is known as the "origin"
+ - there's more to this, but... to merge changes that happened on the remote master branch to your current local branch, use `git pull`
+ - to push your changes to the remote branch (assuming you have access rights!), use `git push'
+- gory details here: http://git-scm.com/book/en/Git-Branching-Remote-Branches
+
+---
+#GitHub
+- A host for your open source projects (for free!), and much more:
+ - as the name indicates, hosts a repo for you on their site
+ - issue tracking
+ - easy code review ("tag" people using their GitHub handle to make them aware of something in need of review)
+ - hooks for running third party tools (e.g., CI)
+
+---
+#Typical GitHub Workflow
+1. create a repo on GitHub
+2. clone it to a local repo
+3. push local changes to origin
+4. if others like what they see, they can create a fork (their own independent clone of your repo)
+5. you don't want random people to have push access to your GitHub repo, so if they want to offer you some patch they made, they'll create a "pull request" (a.k.a a "PR" if you're a cool cat)
+ - at this point, some back-and-forth discussion and code review can happen, until you are satisfied with the changes, at which point you can merge their PR into your own GitHub repo. Open source collaboration in action!  
+
+---
+#GitHub for Edu
+- Usually private repos aren't free, but GitHub gives you a certain number for free if you are from a University
+ - it can be handy for assignments or group projects, as giving feedback is much nicer
+ - for group projects, it's a bit of work creating the repos and allocating students
+ - first year using it, so will know more by term end!
 
 ---
 # Resources
 - Pro Git is a free book [available](http://git-scm.com/book) at the Git web site.
+
+---
+# Overtime!
+[http://www.nmai.ca/research-projects/socialwiki](http://www.nmai.ca/research-projects/socialwiki "Social Wiki")
