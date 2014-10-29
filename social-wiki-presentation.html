@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quick-and-dirty Intro to Git</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+body { font-family: 'Droid Serif'; }
+h1, h2, h3 {
+font-family: 'Yanone Kaffeesatz';
+font-weight: normal;
+}
+.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+</style>
+</head>
+<body>
+<textarea id="source">
+class: center, middle
+
+# Social Wiki
+## A Moodle Plugin for Collaborative Learning ##
+Babak Esfandiari & Alan Davoust
+
+Department of Systems and Computer Engineering
+
+babak@sce.carleton.ca
+
+---
+# Issues with classic Wikis
+- a single version per page
+ - work done by one person can be undone by another (leads to "edit wars")
+ - gives the impression that the current version is "authoritative"
+ - is not suitable for topics where finding a NPOV is difficult or undesirable
+
+---
+# In comes SocialWiki
+- multiple versions per page are possible
+- editing a page doesn't delete the page; instead it creates a new page referring to the old one as its parent 
+ - that's actually already the case in many wikis, but...
+- following a wikilink returns a list of *all* versions of the page
+
+---
+# But... which version should I select?
+- you need to do some work, and that's the whole point!
+ - realize that the latest version isn't necessarily the greatest
+ - but we provide ways to rank the versions according to various criteria/metrics
+ - to do this, you need to "socialize"...
+
+---
+# Putting the "Social" in SocialWiki
+SocialWiki proposes some common social networking metaphors:
+- "like" a wiki page
+- "follow" a wiki user
+It also computes a "favourite" version or each user.  
+
+---
+# Crowd Metrics vs. Social Metrics
+- SocialWiki uses "likes" and "follows" for various metrics that the user can use to rank page versions, in particular:
+ - page popularity: most "liked" page
+ - peer popularity: most "followed" peers
+ - peer similarity: based on which pages were "liked"
+ - peer distance: distance between peers in the social network created by the "follow" action  
+- For these metrics to work, the user needs to participate, by "liking" and "following" often!
+- Note the difference between rankings that depend on crowd choices (popularity) vs. those that are more personalized
+ 
+---
+# Uses in the classroom
+- assignments
+- note-taking
+- ?
+
+Two SYSC courses have used Social Wiki so far. How about you?
+- see the official Social wiki page:
+ 
+http://www.nmai.ca/research-projects/socialwiki
+
+---
+# Next?
+- improve user interface
+- more guinea p... I mean more instructors
+- adoption as a cuLearn plugin
+- convince MOOC platforms?
+
+---
+# Acknowledgments
+- supported by Carleton Innovation Forums
+- SocialWiki has been developed and maintained by numerous graduate and undergraduate students:
+ - Alan Davoust
+ - Cameron Blanchard
+ - Jeremy Dunsmore
+ - Ethan Aubuchon
+ - Fabrice Anon
+ - Megan Ardron
+[http://www.nmai.ca/research-projects/socialwiki](http://www.nmai.ca/research-projects/socialwiki "Social Wiki")
+</textarea>
+<script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+var slideshow = remark.create();
+</script>
+</body>
+</html>
